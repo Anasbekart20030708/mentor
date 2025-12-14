@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->enum('level', ['CP2', 'CI1', 'CI2', 'CI3'])->nullable();
             $table->boolean('is_mentor')->default(false);
-            $table->text('bio')->nullable(); // Max 200 chars (validate in model/request)
+            $table->text('bio')->nullable(); 
             $table->integer('points')->default(0);
             $table->rememberToken();
             $table->timestamps();

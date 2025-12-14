@@ -20,7 +20,7 @@ return new class extends Migration
             $table->dateTime('scheduled_at');
             $table->enum('type', ['En ligne', 'Présentiel']);
             $table->enum('status', ['Planifiée', 'Terminée', 'Annulée'])->default('Planifiée');
-            $table->text('mentor_notes')->nullable(); // Mentor's comment after session
+            $table->text('mentor_notes')->nullable(); 
             $table->timestamps();
         });
     }

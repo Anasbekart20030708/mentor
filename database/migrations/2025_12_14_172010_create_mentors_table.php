@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('mentors', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->json('modules'); // Array of modules: ['Mathématiques', 'Programmation', 'Physique', etc.]
-            $table->decimal('average_rating', 3, 2)->default(0.00); // Ex: 4.50
+            $table->json('modules'); 
+            $table->decimal('average_rating', 3, 2)->default(0.00); 
             $table->integer('total_sessions')->default(0);
             $table->timestamps();
         });

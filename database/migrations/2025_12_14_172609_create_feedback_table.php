@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('session_id')->references('id')->on('sessionns')->onDelete('cascade');
             $table->foreignId('mentor_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('mentee_id')->constrained('users')->onDelete('cascade');
-            $table->integer('rating'); // 1 to 5 stars (validate in request)
+            $table->integer('rating'); 
             $table->text('comment')->nullable();
             $table->enum('problem_resolved', ['Oui', 'Partiellement', 'Non']);
             $table->timestamps();
