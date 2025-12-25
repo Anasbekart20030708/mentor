@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('sessionns', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('help_request_id')->constrained()->onDelete('cascade');
-            $table->foreignId('mentor_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('help_request_id')->nullable()->constrained('help_requests')->onDelete('cascade');
+$table->foreignId('mentor_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('mentee_id')->constrained('users')->onDelete('cascade');
             $table->string('module');
             $table->dateTime('scheduled_at');
-            $table->enum('type', ['En ligne', 'Présentiel']);
-            $table->enum('status', ['Planifiée', 'Terminée', 'Annulée'])->default('Planifiée');
-            $table->text('mentor_notes')->nullable(); 
+            $table->enum('type', ['online', 'in-person']);
+            $table->enum('status', ['scheduled', 'completed', 'cancelled'])->default('scheduled');            $table->text('mentor_notes')->nullable(); 
             $table->timestamps();
         });
     }

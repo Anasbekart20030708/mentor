@@ -15,7 +15,7 @@ class MentorController extends Controller
     public function index()
     {
         $mentors = Mentor::with('user')->paginate(15);
-        return view('mentors.index', compact('mentors'));
+        return view('users.mentors', compact('mentors'));
     }
 
     /**

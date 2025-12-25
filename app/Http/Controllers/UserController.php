@@ -148,7 +148,7 @@ class UserController extends Controller
             'bio' => 'nullable|string|max:1000',
             'is_mentor' => 'boolean',
         ]);
-
+        $validated['level'] = 'Beginner';
         $validated['is_mentor'] = $request->has('is_mentor') ? true : false;
 
         $user->update($validated);
@@ -159,8 +159,7 @@ class UserController extends Controller
             if ($request->has('modules')) {
                 Mentor::create([
                     'user_id' => $user->id,
-                    'modules' => $request->modules,
-                    'average_rating' => 0,
+                    'modules' => json_encode($request->modules), // <- encode it                    'average_rating' => 0,
                     'total_sessions' => 0,
                 ]);
             }

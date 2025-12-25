@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('level', ['CP2', 'CI1', 'CI2', 'CI3'])->nullable();
-            $table->boolean('is_mentor')->default(false);
+            $table->enum('level', ['Beginner', 'Intermediate', 'Advanced'])->nullable();            $table->boolean('is_mentor')->default(false);
             $table->text('bio')->nullable(); 
             $table->integer('points')->default(0);
             $table->rememberToken();

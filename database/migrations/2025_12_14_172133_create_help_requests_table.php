@@ -17,10 +17,9 @@ return new class extends Migration
             $table->foreignId('mentor_id')->constrained('users')->onDelete('cascade'); 
             $table->string('module'); 
             $table->text('description'); 
-            $table->dateTime('proposed_date'); 
-            $table->enum('type', ['En ligne', 'Présentiel']);
-            $table->enum('status', ['En attente', 'Acceptée', 'Refusée'])->default('En attente');
-            $table->timestamps();
+            $table->dateTime('proposed_date');
+            $table->enum('type', ['online', 'in-person']);
+            $table->enum('status', ['pending', 'accepted', 'rejected', 'in-progress', 'resolved', 'cancelled']);            $table->timestamps();
         });
     }
 
